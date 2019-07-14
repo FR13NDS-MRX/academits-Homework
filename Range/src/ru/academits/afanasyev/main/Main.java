@@ -5,8 +5,8 @@ import ru.academits.afanasyev.range.Range;
 public class Main {
     public static void main(String[] args) {
         Range range = new Range(0, 100);
-        Range range1 = new Range(54, 187);
-        Range range2 = new Range(150, 243);
+        Range range1 = new Range(5, 9);
+        Range range2 = new Range(7, 11);
         Range intersection = range1.getIntersection(range2);
         Range[] union = range1.getUnion(range2);
         Range[] difference = range1.getDifference(range2);
@@ -25,8 +25,10 @@ public class Main {
 
         if (difference.length == 1) {
             System.out.printf("Новый интервал-разность - (%.2f; %.2f)%n", difference[0].getFrom(), difference[0].getTo());
-        } else {
+        } else if (difference.length == 2){
             System.out.printf("Новый интервал-разность - (%.2f; %.2f) и (%.2f; %.2f)%n", difference[0].getFrom(), difference[0].getTo(), difference[1].getFrom(), difference[1].getTo());
+        } else {
+            System.out.println(0);
         }
 
         range.setFrom(10);
