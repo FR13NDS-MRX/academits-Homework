@@ -17,10 +17,13 @@ public class Main {
             System.out.printf("Новый интервал-пересечение - (%.2f; %.2f)%n", intersection.getFrom(), intersection.getTo());
         }
 
-        System.out.printf("Новый интервал-объединение - (%.2f; %.2f) и (%.2f; %.2f)%n", union[0].getFrom(), union[0].getTo(), union[1].getFrom(), union[1].getTo());
+        if (union.length == 1) {
+            System.out.printf("Новый интервал-объединение - (%.2f; %.2f)%n", union[0].getFrom(), union[0].getTo());
+        } else {
+            System.out.printf("Новый интервал-объединение - (%.2f; %.2f) и (%.2f; %.2f)%n", union[0].getFrom(), union[0].getTo(), union[1].getFrom(), union[1].getTo());
+        }
 
-
-        if (difference[1] == null) {
+        if (difference.length == 1) {
             System.out.printf("Новый интервал-разность - (%.2f; %.2f)%n", difference[0].getFrom(), difference[0].getTo());
         } else {
             System.out.printf("Новый интервал-разность - (%.2f; %.2f) и (%.2f; %.2f)%n", difference[0].getFrom(), difference[0].getTo(), difference[1].getFrom(), difference[1].getTo());
