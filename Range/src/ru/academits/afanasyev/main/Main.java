@@ -7,28 +7,24 @@ public class Main {
         Range range = new Range(0, 100);
         Range range1 = new Range(54, 187);
         Range range2 = new Range(150, 243);
-        Range range3 = range1.getCrossingInterval(range2);
-        Range[] range4 = range1.addIntervals(range2);
-        Range[] range5 = range1.subtractIntervals(range2);
+        Range intersection = range1.getIntersection(range2);
+        Range[] union = range1.getUnion(range2);
+        Range[] difference = range1.getDifference(range2);
 
-        if (range3 == null) {
+        if (intersection == null) {
             System.out.println("null");
         } else {
-            System.out.printf("Новый интервал-пересечение - (%.2f; %.2f)%n", range3.getFrom(), range3.getTo());
+            System.out.printf("Новый интервал-пересечение - (%.2f; %.2f)%n", intersection.getFrom(), intersection.getTo());
         }
 
-        if (range4[1] == null) {
-            System.out.printf("Новый интервал-объединение - (%.2f; %.2f)%n", range4[0].getFrom(), range4[0].getTo());
+        System.out.printf("Новый интервал-объединение - (%.2f; %.2f) и (%.2f; %.2f)%n", union[0].getFrom(), union[0].getTo(), union[1].getFrom(), union[1].getTo());
+
+
+        if (difference[1] == null) {
+            System.out.printf("Новый интервал-разность - (%.2f; %.2f)%n", difference[0].getFrom(), difference[0].getTo());
         } else {
-            System.out.printf("Новый интервал-объединение - (%.2f; %.2f) и (%.2f; %.2f)%n", range4[0].getFrom(), range4[0].getTo(), range4[1].getFrom(), range4[1].getTo());
+            System.out.printf("Новый интервал-разность - (%.2f; %.2f) и (%.2f; %.2f)%n", difference[0].getFrom(), difference[0].getTo(), difference[1].getFrom(), difference[1].getTo());
         }
-
-        if (range5[1] == null) {
-            System.out.printf("Новый интервал-разность - (%.2f; %.2f)%n", range5[0].getFrom(), range5[0].getTo());
-        } else {
-            System.out.printf("Новый интервал-разность - (%.2f; %.2f) и (%.2f; %.2f)%n", range5[0].getFrom(), range5[0].getTo(), range5[1].getFrom(), range5[1].getTo());
-        }
-
 
         range.setFrom(10);
         range.setTo(110);
