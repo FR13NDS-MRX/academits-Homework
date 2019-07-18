@@ -5,8 +5,8 @@ import ru.academits.afanasyev.range.Range;
 public class Main {
     public static void main(String[] args) {
         Range range = new Range(0, 100);
-        Range range1 = new Range(5, 9);
-        Range range2 = new Range(7, 11);
+        Range range1 = new Range(5, 10);
+        Range range2 = new Range(7, 12);
         Range intersection = range1.getIntersection(range2);
         Range[] union = range1.getUnion(range2);
         Range[] difference = range1.getDifference(range2);

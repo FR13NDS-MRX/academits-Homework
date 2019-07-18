@@ -45,7 +45,7 @@ public class Range {
     }
 
     public Range[] getUnion(Range range) {
-        if (from >= range.to || range.from >= to) {
+        if (from > range.to || range.from > to) {
             return new Range[]{new Range(from, to), new Range(range.from, range.to)};
         }
 
@@ -64,34 +64,18 @@ public class Range {
             return new Range[]{};
         }
 
-        if (from <= range.from && to <= range.to) {
-            if (from == range.from) {
-                return new Range[]{new Range(to, range.to)};
-            }
-
-            if (to == range.to) {
-                return new Range[]{new Range(from, range.from)};
-            }
-
-            return new Range[]{new Range(from, range.from), new Range(to, range.to)};
+        if (from < range.from && to <= range.to) {
+            return new Range[]{new Range(from, range.from)};
         }
 
-        if (range.from <= from && range.to <= to) {
-            if (range.from == from) {
-                return new Range[]{new Range(range.to, to)};
-            }
-
-            if (range.to == to) {
-                return new Range[]{new Range(range.from, from)};
-            }
-
-            return new Range[]{new Range(range.from, from), new Range(range.to, to)};
+        if (range.from <= from && range.to < to) {
+            return new Range[]{new Range(range.to, to)};
         }
 
         if (from < range.from && range.to < to) {
             return new Range[]{new Range(from, range.from), new Range(range.to, to)};
         }
 
-        return new Range[]{new Range(range.from, from), new Range(to, range.to)};
+        return new Range[]{};
     }
 }
