@@ -53,4 +53,37 @@ public class Triangle implements Shape {
     public double getPerimeter() {
         return getALength() + getBLength() + getCLength();
     }
+
+    @Override
+    public String toString() {
+        return "Треугольник";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 17;
+        int hash = 1;
+        hash = hash * prime + (int) x1;
+        hash = hash * prime + (int) x2;
+        hash = hash * prime + (int) x3;
+        hash = hash * prime + (int) y1;
+        hash = hash * prime + (int) y2;
+        hash = hash * prime + (int) y3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (o == null) return false;
+        if (getClass() != o.getClass()) return false;
+        Triangle t = (Triangle) o;
+        if (x1 != t.x1) return false;
+        if (x2 != t.x2) return false;
+        if (x3 != t.x3) return false;
+        if (y1 != t.y1) return false;
+        if (y2 != t.y2) return false;
+        if (y3 != t.y3) return false;
+        return x1 == t.x1 && x2 == t.x2 && x3 == t.x3 && y1 == t.y1 && y2 == t.y2 && y3 == t.y3;
+    }
 }
