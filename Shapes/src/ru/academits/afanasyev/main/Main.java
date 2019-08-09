@@ -14,10 +14,17 @@ public class Main {
         Circle circle2 = new Circle(4);
 
         Shape maxAreaShape = getMaxAreaShape(square, triangle, rectangle1, rectangle2, circle1, circle2);
-        System.out.print("Фигура с максимальной площадью - " + maxAreaShape.toString() + "\nЕё площадь - " + maxAreaShape.getArea() + "\nЕё периметр - " + maxAreaShape.getPerimeter() + "\nЕё ширина и высота - " + maxAreaShape.getWidth() + ", " + maxAreaShape.getHeight() + "\n\n");
+        System.out.println("Фигура с максимальной площадью - " + maxAreaShape.toString());
+        System.out.println("Её площадь - " + maxAreaShape.getArea());
+        System.out.println("Её периметр - " + maxAreaShape.getPerimeter());
+        System.out.println("Её ширина и высота - " + maxAreaShape.getWidth() + ", " + maxAreaShape.getHeight());
+        System.out.println();
 
         Shape secondMaxPerimeterShape = getSecondMaxPerimeterShape(square, triangle, rectangle1, rectangle2, circle1, circle2);
-        System.out.println("Фигура со вторым по величене периметром - " + secondMaxPerimeterShape.toString() + "\nЕё периметер - " + secondMaxPerimeterShape.getPerimeter() + "\nЕё площадь - " + secondMaxPerimeterShape.getArea() + "\nЕё ширина и высота - " + secondMaxPerimeterShape.getWidth() + ", " + secondMaxPerimeterShape.getHeight());
+        System.out.println("Фигура со вторым по величене периметром - " + secondMaxPerimeterShape.toString());
+        System.out.println("Её периметер - " + secondMaxPerimeterShape.getPerimeter());
+        System.out.println("Её площадь - " + secondMaxPerimeterShape.getArea());
+        System.out.println("Её ширина и высота - "  + secondMaxPerimeterShape.getWidth() + ", " + secondMaxPerimeterShape.getHeight());
     }
 
     private static Shape getMaxAreaShape(Shape... shape) {

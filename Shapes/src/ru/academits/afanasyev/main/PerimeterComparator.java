@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class PerimeterComparator implements Comparator<Shape> {
     @Override
-    public int compare(Shape s1, Shape s2) {
-        return (int) s1.getPerimeter() - (int) s2.getPerimeter();
+    public int compare(Shape shape1, Shape shape2) {
+        return Double.compare(shape1.getPerimeter(), shape2.getPerimeter());
     }
 }

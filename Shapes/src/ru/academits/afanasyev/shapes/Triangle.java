@@ -17,6 +17,10 @@ public class Triangle implements Shape {
         this.y3 = y3;
     }
 
+    private double getCutLength(double point1, double point2, double point3) {
+        return Math.max(point1, Math.max(point2, point3)) - Math.min(point1, Math.min(point2, point3));
+    }
+
     private double getALength() {
         return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
@@ -31,12 +35,12 @@ public class Triangle implements Shape {
 
     @Override
     public double getWidth() {
-        return Math.max(x1, Math.max(x2, x3)) - Math.min(x1, Math.min(x2, x3));
+        return getCutLength(x1, x2, x3);
     }
 
     @Override
     public double getHeight() {
-        return Math.max(y1, Math.max(y2, y3)) - Math.min(y1, Math.min(y2, y3));
+        return getCutLength(y1, y2, y3);
     }
 
     @Override
@@ -63,27 +67,26 @@ public class Triangle implements Shape {
     public int hashCode() {
         final int prime = 17;
         int hash = 1;
-        hash = hash * prime + (int) x1;
-        hash = hash * prime + (int) x2;
-        hash = hash * prime + (int) x3;
-        hash = hash * prime + (int) y1;
-        hash = hash * prime + (int) y2;
-        hash = hash * prime + (int) y3;
+        hash = hash * prime + Double.hashCode(x1);
+        hash = hash * prime + Double.hashCode(x2);
+        hash = hash * prime + Double.hashCode(x3);
+        hash = hash * prime + Double.hashCode(y1);
+        hash = hash * prime + Double.hashCode(y2);
+        hash = hash * prime + Double.hashCode(y3);
         return hash;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == this) return true;
-        if (o == null) return false;
-        if (getClass() != o.getClass()) return false;
+        if (o == this) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Triangle t = (Triangle) o;
-        if (x1 != t.x1) return false;
-        if (x2 != t.x2) return false;
-        if (x3 != t.x3) return false;
-        if (y1 != t.y1) return false;
-        if (y2 != t.y2) return false;
-        if (y3 != t.y3) return false;
         return x1 == t.x1 && x2 == t.x2 && x3 == t.x3 && y1 == t.y1 && y2 == t.y2 && y3 == t.y3;
     }
 }

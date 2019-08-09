@@ -36,14 +36,19 @@ public class Circle implements Shape {
     public int hashCode() {
         final int prime = 17;
         int hash = 1;
-        hash = hash * prime + (int) radius;
+        hash = hash * prime + Double.hashCode(radius);
         return hash;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == this) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == this) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Circle c = (Circle) o;
         return radius == c.radius;
     }
