@@ -17,20 +17,24 @@ public class Triangle implements Shape {
         this.y3 = y3;
     }
 
-    private double getCutLength(double point1, double point2, double point3) {
+    private static double getCutLength(double point1, double point2, double point3) {
         return Math.max(point1, Math.max(point2, point3)) - Math.min(point1, Math.min(point2, point3));
     }
 
+    private static double getSideLength(double point1, double point2, double point3, double point4) {
+        return Math.sqrt(Math.pow(point1 - point2, 2) + Math.pow(point3 - point4, 2));
+    }
+
     private double getALength() {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        return getSideLength(x2, x1, y2, y1);
     }
 
     private double getBLength() {
-        return Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));
+        return getSideLength(x3, x1, y3, y1);
     }
 
     private double getCLength() {
-        return Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2));
+        return getSideLength(x3, x2, y3, y2);
     }
 
     @Override
